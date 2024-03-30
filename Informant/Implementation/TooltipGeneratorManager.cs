@@ -75,7 +75,7 @@ internal class TooltipGeneratorManager : ITooltipGeneratorManager<TerrainFeature
             _ => false // we don't know this trigger
         };
 
-        return shouldRender && Game1.timerUntilMouseFade > 0;
+        return shouldRender && (!Game1.options.gamepadControls || Game1.timerUntilMouseFade > 0);
     }
 
     private IEnumerable<Tooltip> GenerateTerrainFeatureTooltips()
